@@ -1,10 +1,10 @@
 import { useMemo, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import type { Task } from "@hakaitask/core";
-import { whenLabel } from "../lib/format.js";
+import { whenLabel } from "@hakaitask/app/format";
 import { fade, rise } from "../lib/motion.js";
 import { useAutoFocus, useEscape, useScrollLock } from "../lib/hooks.js";
-import { completeTask } from "../lib/tasks.js";
+import { completeTask } from "@hakaitask/app/tasks";
 
 export interface Command {
   id: string;

@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { headerDate } from "../lib/format.js";
+import { headerDate } from "@hakaitask/app/format";
 import { press } from "../lib/motion.js";
 import { SyncBadge } from "./SyncBadge.js";
 import { Toggle } from "./Toggle.js";

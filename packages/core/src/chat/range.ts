@@ -11,8 +11,8 @@
  *
  * Minggu dimulai **Senin** (keputusan P2).
  */
-import lex from "../parser/lexicon.id.json" with { type: "json" };
-import chatLex from "./lexicon.chat.id.json" with { type: "json" };
+import lex from "../parser/lexicon.id.json";
+import chatLex from "./lexicon.chat.id.json";
 import {
   addDays,
   nextDateOfYear,

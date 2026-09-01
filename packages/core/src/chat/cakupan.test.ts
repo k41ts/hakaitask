@@ -14,8 +14,8 @@ import { analyze } from "./intent.js";
 import { chatTurn, type ChatContext, type Effect, type Pending } from "./machine.js";
 import { makeTask, type Task } from "../types.js";
 import { parseQuickAdd } from "../parser/index.js";
-import lex from "../parser/lexicon.id.json" with { type: "json" };
-import chatLex from "./lexicon.chat.id.json" with { type: "json" };
+import lex from "../parser/lexicon.id.json";
+import chatLex from "./lexicon.chat.id.json";
 
 const NOW = new Date(2026, 7, 7, 10, 0, 0);
 

@@ -4,3 +4,12 @@ packages:
 allowBuilds:
   # esbuild dipakai vitest buat transpile TS — perlu build script native.
   esbuild: true
+
+# Satu versi React buat seluruh workspace. Bukan sekadar rapi-rapi: dua salinan
+# React di satu bundle bikin "invalid hook call", dan itu paling gampang kejadian
+# pas Metro nyusuri symlink pnpm ke packages/*. Versinya ngikut Expo SDK 57.
+overrides:
+  react: 19.2.3
+  react-dom: 19.2.3
+  "@types/react": ^19.2.0
+  "@types/react-dom": ^19.2.0

@@ -43,7 +43,7 @@ import {
   type AppliedExpansion,
   type VocabEntry,
 } from "./vocab.js";
-import chatLex from "./lexicon.chat.id.json" with { type: "json" };
+import chatLex from "./lexicon.chat.id.json";
 
 const ORDINALS = chatLex.ordinals as Record<string, number>;
 const ORDINAL_PREFIX = chatLex.ordinalPrefix as string[];

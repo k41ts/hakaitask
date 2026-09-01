@@ -1,0 +1,38 @@
+{
+  "name": "@hakaitask/app",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "exports": {
+    ".": "./src/index.ts",
+    "./platform": "./src/platform.ts",
+    "./format": "./src/format.ts",
+    "./calendar": "./src/calendar.ts",
+    "./mapping": "./src/mapping.ts",
+    "./select": "./src/select.ts",
+    "./tasks": "./src/tasks.ts",
+    "./chat": "./src/chat.ts",
+    "./sync": "./src/sync/index.ts",
+    "./theme": "./src/theme.ts"
+  },
+  "scripts": {
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "test:watch": "vitest"
+  },
+  "dependencies": {
+    "@hakaitask/core": "workspace:*",
+    "zustand": "^5.0.2"
+  },
+  "peerDependencies": {
+    "@supabase/supabase-js": "^2.47.10",
+    "react": ">=18"
+  },
+  "devDependencies": {
+    "@supabase/supabase-js": "^2.47.10",
+    "@types/react": "^19.2.0",
+    "react": "19.2.3",
+    "typescript": "^5.7.2",
+    "vitest": "^2.1.8"
+  }
+}

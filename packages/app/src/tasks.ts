@@ -14,9 +14,12 @@ import {
   type Task,
 } from "@hakaitask/core";
 import { useKaiStore } from "@hakaitask/core/store";
+import { platform } from "./platform.js";
+import { selectBusyBlocks, selectTasks } from "./select.js";
 
+/** `crypto.randomUUID` gak ada di Hermes — jadi disuntik lewat adapter. */
 export function newId(): string {
-  return crypto.randomUUID();
+  return platform().uuid();
 }
 
 function nowIso(): string {
@@ -25,23 +28,12 @@ function nowIso(): string {
 
 export function useTasks(): Task[] {
   const map = useKaiStore((s) => s.tasks);
-  return useMemo(
-    () => Object.values(map).filter((t) => !t.deletedAt && t.status !== "archived"),
-    [map],
-  );
+  return useMemo(() => selectTasks(map), [map]);
 }
 
 export function useBusyBlocks(): BusyBlock[] {
   const map = useKaiStore((s) => s.busyBlocks);
-  return useMemo(
-    () =>
-      Object.values(map)
-        // Jadwal sekarang dihapus pakai tombstone (biar sync-nya jujur), jadi
-        // yang udah dihapus harus disaring di sini — persis kayak task.
-        .filter((b) => !b.deletedAt)
-        .sort((a, b) => a.startAt.localeCompare(b.startAt)),
-    [map],
-  );
+  return useMemo(() => selectBusyBlocks(map), [map]);
 }
 
 /** Mode energi efektif: "auto" diterjemahkan dari jam (§6.6). */

@@ -6,7 +6,7 @@
  * kalau dibalik `tiap senin` kebaca sebagai tanggal "senin".
  */
 import type { Energy, Priority } from "../types.js";
-import lex from "./lexicon.id.json" with { type: "json" };
+import lex from "./lexicon.id.json";
 import {
   addDays,
   addMonths,

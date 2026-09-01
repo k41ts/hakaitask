@@ -7,7 +7,7 @@
  * berbeda.
  */
 import type { BusyBlock, Task } from "../types.js";
-import chatLex from "./lexicon.chat.id.json" with { type: "json" };
+import chatLex from "./lexicon.chat.id.json";
 import { addDays, startOfDay } from "../parser/datetime.js";
 import type { ObjectKind, StatusFilter } from "./intent.js";
 import { inRange, type DateRange } from "./range.js";

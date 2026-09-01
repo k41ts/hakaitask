@@ -10,8 +10,8 @@
  * mustahil secara konstruksi, dan hasilnya selalu bisa ditampilin utuh ke
  * user dalam satu baris.
  */
-import lex from "../parser/lexicon.id.json" with { type: "json" };
-import chatLex from "./lexicon.chat.id.json" with { type: "json" };
+import lex from "../parser/lexicon.id.json";
+import chatLex from "./lexicon.chat.id.json";
 import { findLongest, words } from "./match.js";
 import { resolveDateRange } from "./range.js";
 

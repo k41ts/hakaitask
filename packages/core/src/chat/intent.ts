@@ -13,8 +13,8 @@
  *   • `jadwal` ada di `intent.schedule` (= perintah bikin jadwal) → di sini dia
  *     diperlakukan sebagai OBJEK, jadi "jadwal gw hari ini apa?" kebaca query.
  */
-import chatLex from "./lexicon.chat.id.json" with { type: "json" };
-import lex from "../parser/lexicon.id.json" with { type: "json" };
+import chatLex from "./lexicon.chat.id.json";
+import lex from "../parser/lexicon.id.json";
 import { findLongest, findLongestIn, words } from "./match.js";
 import { findRange, type DateRange } from "./range.js";
 

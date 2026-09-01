@@ -1,8 +1,8 @@
 import { motion } from "framer-motion";
 import type { Task } from "@hakaitask/core";
-import { durationLabel, isOverdue, whenLabel } from "../lib/format.js";
+import { durationLabel, isOverdue, whenLabel } from "@hakaitask/app/format";
 import { rise } from "../lib/motion.js";
-import { completeTask, subtaskProgress } from "../lib/tasks.js";
+import { completeTask, subtaskProgress } from "@hakaitask/app/tasks";
 import { Checkbox, StrikeText } from "./Checkbox.js";
 
 export function FocusCard({

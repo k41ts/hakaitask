@@ -1,0 +1,45 @@
+{
+  "name": "@hakaitask/mobile",
+  "version": "0.0.0",
+  "private": true,
+  "main": "expo-router/entry",
+  "scripts": {
+    "start": "expo start --dev-client",
+    "android": "expo run:android",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@expo-google-fonts/geist-mono": "^0.4.3",
+    "@expo-google-fonts/plus-jakarta-sans": "^0.4.2",
+    "@hakaitask/app": "workspace:*",
+    "@hakaitask/core": "workspace:*",
+    "@hakaitask/tokens": "workspace:*",
+    "expo": "~57.0.0",
+    "expo-constants": "~57.0.16",
+    "expo-crypto": "~57.0.2",
+    "expo-dev-client": "~57.0.16",
+    "expo-font": "~57.0.2",
+    "expo-haptics": "~57.0.2",
+    "expo-keep-awake": "~57.0.1",
+    "expo-linking": "~57.0.8",
+    "expo-router": "~57.0.17",
+    "expo-status-bar": "~57.0.1",
+    "expo-system-ui": "~57.0.3",
+    "react": "19.2.3",
+    "react-native": "0.86.3",
+    "react-native-gesture-handler": "~2.32.0",
+    "react-native-mmkv": "^4.3.2",
+    "react-native-reanimated": "4.5.1",
+    "react-native-safe-area-context": "~5.7.0",
+    "react-native-screens": "~4.26.2",
+    "react-native-url-polyfill": "^4.0.0",
+    "react-native-worklets": "0.10.1",
+    "zustand": "^5.0.2"
+  },
+  "devDependencies": {
+    "@types/react": "^19.2.0",
+    "babel-preset-expo": "~57.0.9",
+    "dotenv": "^17.0.0",
+    "typescript": "^5.7.2"
+  }
+}

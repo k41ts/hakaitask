@@ -11,11 +11,14 @@ import { EmptyState } from "./components/EmptyState.js";
 import { FocusCard } from "./components/FocusCard.js";
 import { Header } from "./components/Header.js";
 import { buildEntries, UpcomingList } from "./components/UpcomingList.js";
-import { useLenis, useNow } from "./lib/hooks.js";
+import { useNow } from "@hakaitask/app";
+import { useLenis } from "./lib/hooks.js";
 import type { Page } from "./lib/pages.js";
 import { useTheme } from "./lib/theme.js";
-import { startSync } from "./lib/sync.js";
-import { useBusyBlocks, useFocus, useTasks } from "./lib/tasks.js";
+import { startSync } from "@hakaitask/app/sync";
+import { supabase } from "./lib/supabase.js";
+import { watchConnectivity } from "./lib/platform.js";
+import { useBusyBlocks, useFocus, useTasks } from "@hakaitask/app/tasks";
 
 /** Transisi antar halaman — sengaja objek polos biar gak merambat ke anak. */
 const PAGE_ANIM = {
@@ -75,8 +78,8 @@ function Dashboard({
   const [paletteOpen, setPaletteOpen] = useState(false);
 
   useEffect(() => {
-    if (!sync) return;
-    return startSync(userId);
+    if (!sync || !supabase) return;
+    return startSync({ client: supabase, userId, watchConnectivity }).stop;
   }, [sync, userId]);
 
   // Task yang lagi kebuka diambil dari store, bukan disalin ke state — biar

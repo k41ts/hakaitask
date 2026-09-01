@@ -11,6 +11,8 @@ import { useKaiStore } from "@hakaitask/core/store";
 import type { Effect, ChatMessage, VocabEntry } from "@hakaitask/core/chat";
 import type { UserLexiconEntry } from "@hakaitask/core";
 import { createFromParse, newId } from "./tasks.js";
+import { platform } from "./platform.js";
+import { selectVocab } from "./select.js";
 
 // ── riwayat percakapan (keputusan P6: umur 1 jam) ────────────────────────────
 
@@ -31,7 +33,7 @@ export interface StoredMessage extends ChatMessage {
  */
 export function loadHistory(now: number = Date.now()): StoredMessage[] {
   try {
-    const raw = localStorage.getItem(HISTORY_KEY);
+    const raw = platform().kv.get(HISTORY_KEY);
     if (!raw) return [];
     const parsed = JSON.parse(raw) as StoredMessage[];
     if (!Array.isArray(parsed)) return [];
@@ -46,7 +48,7 @@ export function saveHistory(messages: readonly StoredMessage[]): void {
   try {
     // Isi percakapan gak pernah masuk `partialize` store maupun outbox —
     // dia berhenti di device ini.
-    localStorage.setItem(HISTORY_KEY, JSON.stringify(messages));
+    platform().kv.set(HISTORY_KEY, JSON.stringify(messages));
   } catch {
     /* kuota penuh / mode privat — gak fatal */
   }
@@ -54,7 +56,7 @@ export function saveHistory(messages: readonly StoredMessage[]): void {
 
 export function clearHistory(): void {
   try {
-    localStorage.removeItem(HISTORY_KEY);
+    platform().kv.remove(HISTORY_KEY);
   } catch {
     /* diabaikan */
   }
@@ -65,13 +67,7 @@ export function clearHistory(): void {
 /** Bentuk store (`dari`/`ke`) → bentuk mesin chat (`phrase`/`meaning`). */
 export function useVocab(): VocabEntry[] {
   const map = useKaiStore((s) => s.lexicon);
-  return useMemo(
-    () =>
-      Object.values(map)
-        .filter((v) => !v.deletedAt)
-        .map((v) => ({ id: v.id, phrase: v.dari, meaning: v.ke, type: v.tipe })),
-    [map],
-  );
+  return useMemo(() => selectVocab(map), [map]);
 }
 
 // ── penerapan efek ───────────────────────────────────────────────────────────

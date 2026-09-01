@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import type { Priority, Task } from "@hakaitask/core";
-import { durationLabel, isOverdue, metaLine, snoozeTargets, whenLabel } from "../lib/format.js";
+import { durationLabel, isOverdue, metaLine, snoozeTargets, whenLabel } from "@hakaitask/app/format";
 import { fade, listContainer, listItem, press, sheet } from "../lib/motion.js";
 import { useEscape, useScrollLock } from "../lib/hooks.js";
 import {
@@ -14,7 +14,7 @@ import {
   startTask,
   toggleSubtask,
   uncompleteTask,
-} from "../lib/tasks.js";
+} from "@hakaitask/app/tasks";
 import { Checkbox, StrikeText } from "./Checkbox.js";
 
 const PRIORITIES: Priority[] = [1, 2, 3, 4];

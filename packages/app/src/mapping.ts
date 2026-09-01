@@ -67,13 +67,6 @@ export function fromRow(row: TaskRow): Task {
   return task as unknown as Task;
 }
 
-/** Nama kolom → nama field, buat memetakan lockedFields ke sisi remote. */
-export function fieldsOf(row: TaskRow): string[] {
-  return Object.keys(row)
-    .map((c) => TO_FIELD[c])
-    .filter((f): f is string => f !== undefined);
-}
-
 // ── busy_blocks ──────────────────────────────────────────────────────────────
 
 export function blockToRow(b: BusyBlock): TaskRow {

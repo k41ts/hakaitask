@@ -1,0 +1,31 @@
+{
+  "expo": {
+    "name": "HaKaiTask",
+    "slug": "hakaitask",
+    "scheme": "hakaitask",
+    "version": "0.1.0",
+    "orientation": "portrait",
+    "userInterfaceStyle": "automatic",
+    "newArchEnabled": true,
+    "android": {
+      "package": "com.kai.hakaitask"
+    },
+    "plugins": [
+      "expo-router",
+      "expo-status-bar",
+      "expo-font",
+      "expo-dev-client",
+      "expo-system-ui"
+    ],
+    "experiments": {
+      "typedRoutes": true
+    },
+    "owner": "m4dt1ngs72",
+    "extra": {
+      "router": {},
+      "eas": {
+        "projectId": "d9117084-40b5-434e-97a4-0d7289f09677"
+      }
+    }
+  }
+}

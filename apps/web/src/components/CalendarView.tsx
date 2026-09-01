@@ -8,10 +8,10 @@ import {
   monthMatrix,
   sameDay,
   tasksOnDate,
-} from "../lib/calendar.js";
-import { clock, headerDate, isOverdue } from "../lib/format.js";
+} from "@hakaitask/app/calendar";
+import { clock, headerDate, isOverdue } from "@hakaitask/app/format";
 import { listContainer, listItem, press, rise } from "../lib/motion.js";
-import { completeTask } from "../lib/tasks.js";
+import { completeTask } from "@hakaitask/app/tasks";
 import { Checkbox, StrikeText } from "./Checkbox.js";
 
 const HARI_PENDEK = ["Min", "Sen", "Sel", "Rab", "Kam", "Jum", "Sab"];

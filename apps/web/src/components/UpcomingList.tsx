@@ -1,8 +1,8 @@
 import { AnimatePresence, motion } from "framer-motion";
 import type { BusyBlock, Task } from "@hakaitask/core";
-import { clock, isOverdue, whenLabel } from "../lib/format.js";
+import { clock, isOverdue, whenLabel } from "@hakaitask/app/format";
 import { listContainer, listItem } from "../lib/motion.js";
-import { completeTask } from "../lib/tasks.js";
+import { completeTask } from "@hakaitask/app/tasks";
 import { Checkbox, StrikeText } from "./Checkbox.js";
 
 export type UpcomingEntry =
